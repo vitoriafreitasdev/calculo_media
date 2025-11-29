@@ -47,7 +47,7 @@ const ReceberAsNota = () => {
     
   }
 
-  const calcularMediaTeorica = (prova, pim, ava) => {
+  const calcularMediaTeorica = (prova, ava, pim) => {
         return (prova * 7 + pim * 2 + ava * 1) / 10
 
         
