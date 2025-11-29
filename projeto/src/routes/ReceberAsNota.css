@@ -1,0 +1,56 @@
+.divMedia{
+    margin: 2rem;
+    padding: 0.5rem;
+    background-color: #A7CDBD;
+    width: 50vw;
+    border-radius: 0.5rem;
+    
+}
+
+.divMedia div {
+    background-color: #A7CDBD;
+}
+
+.divMedia  h1 {
+    background-color: #ffffff52;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 0.8rem;
+}
+
+.divMedia  h2 {
+    background-color: #ffffff52;
+    margin: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.divMedia h3 {
+    margin: 0.5rem;
+    background-color: #140578b6;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.divMedia label {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-weight: bold;
+} 
+
+.divMedia input[type="number"] {
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+}
+
+.divMedia .resultado {
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.divMedia .resultado p {
+    padding: 0.4rem;
+    font-weight: bold;
+}

@@ -1,0 +1,40 @@
+.formNomes{
+    margin: 2rem;
+    padding: 0.5rem;
+    background-color: #A7CDBD;
+    width: 50vw;
+    
+    border-radius: 0.5rem;
+}
+
+.formNomes h1{
+   margin: 1rem;
+   padding: 0.5rem;
+}
+
+.formNomes div {
+    background-color: #A7CDBD;
+}
+.formNomes input[type="text"] {
+    margin: 2px;
+    width: 25rem;
+    height: 1.2rem;
+    text-align: center;
+}
+
+.formNomes input[type="submit"] {
+    width: 10rem;
+    height: 2rem;
+    margin: 0.8rem;
+    padding: 0.2rem;
+    background-color: brown;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.formNomes input[type="submit"]:hover {
+    background-color: #869D7A;
+    color: black
+};
