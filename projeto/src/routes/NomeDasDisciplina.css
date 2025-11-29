@@ -3,7 +3,6 @@
     padding: 0.5rem;
     background-color: #A7CDBD;
     width: 50vw;
-    
     border-radius: 0.5rem;
 }
 
@@ -17,7 +16,7 @@
 }
 .formNomes input[type="text"] {
     margin: 2px;
-    width: 25rem;
+    width: 50%;
     height: 1.2rem;
     text-align: center;
 }

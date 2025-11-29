@@ -38,7 +38,6 @@ const ReceberAsNota = () => {
       media,
       aprovado: media >= 7
     }
-    console.log(novasNotas)
     return novasNotas
 
     })
