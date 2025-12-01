@@ -6,17 +6,18 @@ import { createBrowserRouter, RouterProvider, Route, Navigate } from "react-rout
 
 import NomeDasDisciplina from './routes/NomeDasDisciplina.jsx'
 import ReceberAsNota from './routes/ReceberAsNota.jsx'
+import Entrada from './components/Entrada.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
     children: [
       {
-        path: "nomeDasDisciplinas",
+        path: "/nomeDasDisciplinas",
         element: <NomeDasDisciplina/>
       },
       {
-        path: "receberAsNotas",
+        path: "/receberAsNotas",
         element: <ReceberAsNota/>
       }
     ]

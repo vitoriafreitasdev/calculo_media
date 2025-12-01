@@ -4,6 +4,10 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import './NomeDasDisciplina.css'
 
+import livro from "../img/icone-livro.png"
+import frasco from "../img/icone-frasco.jpeg"
+
+
 const NomeDasDisciplina = () => {
     const location = useLocation()
     const navigate = useNavigate();
@@ -29,22 +33,32 @@ const NomeDasDisciplina = () => {
         navigate('/receberAsNotas', {state: { nomeDasDisciTeorica, nomeDasDisciPratica }})
     }
   return (
+    // arrumar o css desse aqui
     <form onSubmit={handleSubmit} className="formNomes">
-        <h1>Nomes das teóricas</h1>
-         {Array.from({length: numDeTeorica}).map((_, index) =>(
-            <div key={index}>
-                <p>nome da disciplina: </p>
-                <input type="text" onChange={(e) => teoricas(index, e.target.value)} value={nomeDasDisciTeorica[index] || ''}/>
+            <h2>Disciplinas nomes</h2>
+            <div className="div-nomes">
+                <div className="h2-img">
+                    <img className="icone" src={livro} alt="" />
+                    <h2>Teóricas</h2>
+                </div>
+                {Array.from({length: numDeTeorica}).map((_, index) =>(
+                    <div key={index}>
+                        <p className="p-name">Nome da disciplina: </p>
+                        <input type="text" onChange={(e) => teoricas(index, e.target.value)} value={nomeDasDisciTeorica[index] || ''}/>
+                    </div>
+                ))}
+                <div className="h2-img">
+                    <img className="icone" src={frasco} alt="" />
+                    <h2>Práticas</h2>
+                </div>
+                {Array.from({length: numDePratica}).map((_, index) =>(
+                    <div key={index}>
+                        <p className="p-name">Nome da disciplina: </p>
+                        <input type="text" onChange={(e) => praticas(index, e.target.value)} value={nomeDasDisciPratica[index] || ''}/>
+                    </div>
+                ))}
+                <input type="submit" value="Enviar" />
             </div>
-         ))}
-         <h1>Nomes das práticas</h1>
-         {Array.from({length: numDePratica}).map((_, index) =>(
-            <div key={index}>
-                <p>nome da disciplina: </p>
-                 <input type="text" onChange={(e) => praticas(index, e.target.value)} value={nomeDasDisciPratica[index] || ''}/>
-            </div>
-         ))}
-         <input type="submit" value="Enviar" />
     </form>
   )
 }

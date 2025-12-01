@@ -106,8 +106,8 @@ const calcularMediaPratica = (prova, relatorio) => {
     <div className="divMedia">
       <h1>Lançamento de notas</h1>
       <div>
-        <h2>Teóricas</h2>
-        <div className="disciplinas-teoricas-grid">
+        <h2 className="h2-divMedia">Teóricas</h2>
+          <div className="disciplinas-teoricas-grid">
                 {nomeDasDisciTeorica.map((nome, index) => (
                     <div key={index} className="disciplina-card">
                         <h3>{nome}</h3>
@@ -155,7 +155,7 @@ const calcularMediaPratica = (prova, relatorio) => {
                     </div>
                 ))}
             </div>
-            <h2>Práticas</h2>
+            <h2 className="h2-divMedia">Práticas</h2>
             <div className="disciplinas-praticas-grid">
                   {nomeDasDisciPratica.map((nome, index) => (
                     <div key={index} className="disciplina-card">

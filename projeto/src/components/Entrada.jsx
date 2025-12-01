@@ -12,7 +12,8 @@ const Entrada = () => {
         navigate('/nomeDasDisciplinas', {state: { numDeTeorica, numDePratica }})
     }
   return (
-    <div >
+    <div className="entrada-div">
+        
         <form onSubmit={onSubmit} className="formEntrada">
             <h1>Calculo de média</h1>
             <p>Quantas disciplinas teóricas você irá digitar: </p>
