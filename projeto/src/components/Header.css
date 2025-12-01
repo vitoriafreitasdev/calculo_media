@@ -12,6 +12,7 @@ header{
 .links{
     color: #fff;
     text-decoration: none;
+    margin-right: 1rem;
 }
 .header-title-icon{
     display: flex;
