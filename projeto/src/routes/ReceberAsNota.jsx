@@ -8,7 +8,8 @@ const ReceberAsNota = () => {
 
     // teorica
     const [notasTeoricas, setNotasTeoricas] = useState(
-        nomeDasDisciTeorica.map(() => ({
+        nomeDasDisciTeorica.map((nome) => ({
+            disciplina: nome,
             prova: 0,
             ava: 0,
             pim: 0,
@@ -48,15 +49,14 @@ const ReceberAsNota = () => {
   }
 
   const calcularMediaTeorica = (prova, ava, pim) => {
-        return (prova * 7 + pim * 2 + ava * 1) / 10
-
-        
+      return (prova * 7 + pim * 2 + ava * 1) / 10
   }
 
 // praticas
 
 const [notaPraticas, setNotaPraticas] = useState(
-  nomeDasDisciPratica.map(() =>({
+  nomeDasDisciPratica.map((nome) =>({
+      disciplina: nome,
       prova: 0,
       relatorio: 0,
       aprovado: false,
@@ -100,6 +100,12 @@ const calcularMediaPratica = (prova, relatorio) => {
   //     return medias.reduce((sum, media) => sum + media, 0) / medias.length;
   // };
 
+
+  const salvarLocalStorage = () => {
+
+    localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
+    localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
+  }
 
 
   return (
@@ -188,10 +194,13 @@ const calcularMediaPratica = (prova, relatorio) => {
                       <div className={`resultado ${notaPraticas[index].aprovado ? 'aprovado' : 'reprovado'}`}>
                             <p>Média: <strong>{notaPraticas[index].media}</strong></p>
                             <p>Situação: {notaPraticas[index].aprovado ? '✅ Aprovado' : '❌ Reprovado'}</p>
-                        </div>
-                        
+                      </div>
                     </div>
                 ))}
+
+                <div className="btn-salvar">
+                  <button onClick={salvarLocalStorage}>Salvar</button>
+                </div>
             </div>
             {/* <div className="resumo-geral">
                 <h2>Resumo Geral</h2>
