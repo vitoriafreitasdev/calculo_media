@@ -5,7 +5,7 @@ import './ReceberAsNota.css'
 const ReceberAsNota = () => {
     const location = useLocation()
     const {nomeDasDisciTeorica = [], nomeDasDisciPratica = []} = location.state || []
-
+    const [userMessage, setUserMessage] = useState(null)
     // teorica
     const [notasTeoricas, setNotasTeoricas] = useState(
         nomeDasDisciTeorica.map((nome) => ({
@@ -100,11 +100,36 @@ const calcularMediaPratica = (prova, relatorio) => {
   //     return medias.reduce((sum, media) => sum + media, 0) / medias.length;
   // };
 
+  
+
 
   const salvarLocalStorage = () => {
 
+    const notasTeoricasSalvas = localStorage.getItem("notasTeoricas")
+    const notasPraticasSalvas = localStorage.getItem("notasPraticas")
+
+    if(!notasTeoricasSalvas && !notasPraticasSalvas){
+      localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
+      localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
+      setUserMessage("Salvo com sucesso.")
+      return
+    }
+
+    const notasTeoricaSalvaJS = JSON.parse(notasTeoricasSalvas)
+    const notasPraticaSalvaJS = JSON.parse(notasPraticasSalvas)
+
+    notasTeoricaSalvaJS.forEach((disciplina) => {
+      notasTeoricas.push(disciplina)
+    });
+
+    notasPraticaSalvaJS.forEach((disciplina) => {
+      notaPraticas.push(disciplina)
+    });
+    
     localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
     localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
+
+    setUserMessage("Salvo com sucesso.")
   }
 
 
@@ -197,7 +222,7 @@ const calcularMediaPratica = (prova, relatorio) => {
                       </div>
                     </div>
                 ))}
-
+                {userMessage && <p className="userMessage">{userMessage}</p>}
                 <div className="btn-salvar">
                   <button onClick={salvarLocalStorage}>Salvar</button>
                 </div>

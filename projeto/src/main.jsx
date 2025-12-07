@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider, Route, Navigate } from "react-rout
 import NomeDasDisciplina from './routes/NomeDasDisciplina.jsx'
 import ReceberAsNota from './routes/ReceberAsNota.jsx'
 import Entrada from './components/Entrada.jsx'
-import DisplinasSalvas from './routes/DisplinasSalvas.jsx'
+import DisciplinasSalvas from './routes/DisciplinasSalvas.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/disciplinassalvas",
-        element: <DisplinasSalvas/>
+        element: <DisciplinasSalvas/>
       }
     ]
   }

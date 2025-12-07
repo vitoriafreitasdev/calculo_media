@@ -86,3 +86,9 @@
 .btn-salvar button:hover{
     text-decoration: underline;
 }
+
+.userMessage{
+    text-align: center;
+    margin: 1rem;
+    text-decoration: underline;
+}
