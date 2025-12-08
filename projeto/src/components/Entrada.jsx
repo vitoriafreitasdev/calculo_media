@@ -6,16 +6,24 @@ const Entrada = () => {
     const navigate = useNavigate();
     const [numDeTeorica, setNumDeTeorica] = useState(0)
     const [numDePratica, setNumDePratica] = useState(0)
+    const [message, setUserMessage] = useState(null)
 
     const onSubmit = (e) => {
         e.preventDefault()
-        navigate('/nomeDasDisciplinas', {state: { numDeTeorica, numDePratica }})
-    }
 
-    
+        if(numDeTeorica > 0 && numDePratica > 0){
+          navigate('/nomeDasDisciplinas', {state: { numDeTeorica, numDePratica }})
+        } else {
+          setUserMessage("Adiocione a quantidade de disciplinas antes de enviar.")
+          setTimeout(function(){
+            setUserMessage(null)
+          }, 2000)
+          return
+        }
+    }
   return (
     <div className="entrada-div">
-        
+        {message && <p className="user-message">{message}</p>}
         <form onSubmit={onSubmit} className="formEntrada">
             <h1>Calculo de média</h1>
             <p>Quantas disciplinas teóricas você irá digitar: </p>

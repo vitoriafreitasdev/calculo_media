@@ -8,7 +8,7 @@ function App() {
   return (
     <div >
       <Header/>
-      <Entrada/>
+      {/* <Entrada/> */}
       <Outlet/>
     </div>
   )

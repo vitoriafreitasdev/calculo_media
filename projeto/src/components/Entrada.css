@@ -59,3 +59,8 @@
 .disc-salvas-btn:hover{
     text-decoration: underline;
 }
+
+.user-message{
+    margin: 0.5rem;
+    text-decoration: underline;
+}

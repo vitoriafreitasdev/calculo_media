@@ -1,6 +1,6 @@
 .disciplinasSalvasDiv{
-    margin: 1rem;
-    background-color: antiquewhite;
+    margin: 2rem;
+    background-color: rgba(16, 133, 187, 0.445);
     padding: 2rem;
 }
 .disciplinasSalvasDiv h2, h3, h4{
@@ -11,10 +11,46 @@
     margin: 1rem;
     padding: 0.5rem;
 }
-.discTeoricasSalvas{
-    background-color: burlywood;
-}
-.discPraticasSalvas{
-    background-color: aquamarine;
+
+.discTeoricasSalvas div, .discPraticasSalvas div {
+    margin: 1rem;
+    padding: 0.2rem;
 }
 
+.discTeoricasSalvas div p, .discPraticasSalvas div p{
+    margin: 0.2rem;
+}
+
+.discTeoricasSalvas div h3, .discPraticasSalvas div h3{
+    text-decoration: underline;
+}
+
+.discTeoricasSalvas{
+    background-color: #ececec;
+}
+.discPraticasSalvas{
+    background-color: rgb(206, 206, 206);
+}
+
+.aprovado{
+    color: green;
+}
+
+.reprovado{
+    color: red;
+}
+
+.save-btn{
+    background-color: rgb(42, 71, 165);
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    border: none;
+    margin: 1;
+    margin-left: 1rem;
+    width: 150px;
+}
+
+.save-btn:hover{
+    text-decoration: underline;
+}

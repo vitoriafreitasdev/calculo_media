@@ -22,12 +22,15 @@ const DisplinasSalvas = () => {
       <div className='discTeoricasSalvas'>
           {teoricasJS && teoricasJS.map((disciplina, index) => (
             <div key={index} className='discTeorica'> 
-                <h4>{disciplina.disciplina}</h4>
-                <p><strong>Prova: </strong>{disciplina.prova}</p>
-                <p><strong>Ava: </strong>{disciplina.ava}</p>
-                <p><strong>Pim: </strong>{disciplina.pim}</p>
+                <h3>{disciplina.disciplina}</h3>
+                <p><strong>Prova:</strong></p>
+                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.prova}/>
+                <p><strong>Ava: </strong></p>
+                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.ava}/>
+                <p><strong>Pim: </strong></p>
+                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.pim}/>
                 <p><strong>Média: </strong>{disciplina.media}</p>
-                {disciplina.aprovado ? <p>Aprovado</p> : <p>Reprovado</p>}
+                {disciplina.aprovado ? <p className="aprovado">Aprovado</p> : <p className="reprovado">Reprovado</p>}
             </div>
         ))}
       </div>
@@ -35,14 +38,17 @@ const DisplinasSalvas = () => {
       <div className='discPraticasSalvas'>
           {praticaJS && praticaJS.map((disciplina, index) => (
             <div key={index} className='discPratica'> 
-                <h4>{disciplina.disciplina}</h4>
-                <p><strong>Prova: </strong>{disciplina.prova}</p>
-                <p><strong>Relatório: </strong>{disciplina.relatorio}</p>
+                <h3>{disciplina.disciplina}</h3>
+                <p><strong>Prova: </strong></p>
+                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.prova}/>
+                <p><strong>Relatório: </strong></p>
+                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.relatorio}/>
                 <p><strong>Média: </strong>{disciplina.media}</p>
-                {disciplina.aprovado ? <p>Aprovado</p> : <p>Reprovado</p>}
+                {disciplina.aprovado ? <p className="aprovado">Aprovado</p> : <p className="reprovado">Reprovado</p>}
             </div>
            ))}
       </div>
+      <button className="save-btn">Salvar</button>
     </div>
   )
 }
