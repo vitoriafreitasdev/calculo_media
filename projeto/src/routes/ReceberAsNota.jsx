@@ -2,11 +2,13 @@
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
 import './ReceberAsNota.css'
+import { useNotas } from "../hooks/useNotas"
+
 const ReceberAsNota = () => {
     const location = useLocation()
     const {nomeDasDisciTeorica = [], nomeDasDisciPratica = []} = location.state || []
-    const [userMessage, setUserMessage] = useState(null)
-    // teorica
+
+    
     const [notasTeoricas, setNotasTeoricas] = useState(
         nomeDasDisciTeorica.map((nome) => ({
             disciplina: nome,
@@ -18,82 +20,20 @@ const ReceberAsNota = () => {
         }))
     )
 
-    
-  const teoricas = (index, tipo, valor) => {
-    const valorNumerico = Number(valor)
-
-    setNotasTeoricas(prev => {
-      const novasNotas = [...prev]
-      novasNotas[index] = {
-        ...novasNotas[index],
-        [tipo]: valorNumerico
-      }
-      const media = calcularMediaTeorica(
-      novasNotas[index].prova,
-      novasNotas[index].ava,
-      novasNotas[index].pim
+    const [notaPraticas, setNotaPraticas] = useState(
+      nomeDasDisciPratica.map((nome) =>({
+          disciplina: nome,
+          prova: 0,
+          relatorio: 0,
+          aprovado: false,
+        }))
     )
 
-    novasNotas[index] ={
-      ...novasNotas[index],
-      media,
-      aprovado: media >= 7
-    }
-    return novasNotas
-
-    })
-
-    
-
-    
-  }
-
-  const calcularMediaTeorica = (prova, ava, pim) => {
-      return (prova * 7 + pim * 2 + ava * 1) / 10
-  }
-
-// praticas
-
-const [notaPraticas, setNotaPraticas] = useState(
-  nomeDasDisciPratica.map((nome) =>({
-      disciplina: nome,
-      prova: 0,
-      relatorio: 0,
-      aprovado: false,
-    }))
-)
+   const {teoricas, praticas, salvarLocalStorage, userMessage} = useNotas(notasTeoricas, setNotasTeoricas, notaPraticas, setNotaPraticas)
 
 
-const praticas = (index, tipo, valor) => {
-  const valorNumerico = Number(valor)
+  
 
-  setNotaPraticas( prev => {
-    const novasNotas = [...prev]
-    novasNotas[index] = {
-      ...novasNotas[index],
-      [tipo]: valorNumerico
-    }
-
-    const media = calcularMediaPratica(
-      novasNotas[index].prova,
-      novasNotas[index].relatorio
-    )
-
-    novasNotas[index] = {
-      ...novasNotas[index],
-      media,
-      aprovado: media >= 7
-    }
-
-    return novasNotas
-  })
-
-}
-
-
-const calcularMediaPratica = (prova, relatorio) => {
-  return (prova * 7 + relatorio * 3) / 10
-}
 
   // const calcularMediaGeral = () => {
   //     const medias = notasTeoricas.map(nota => nota.media);
@@ -101,37 +41,6 @@ const calcularMediaPratica = (prova, relatorio) => {
   // };
 
   
-
-
-  const salvarLocalStorage = () => {
-
-    const notasTeoricasSalvas = localStorage.getItem("notasTeoricas")
-    const notasPraticasSalvas = localStorage.getItem("notasPraticas")
-
-    if(!notasTeoricasSalvas && !notasPraticasSalvas){
-      localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
-      localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
-      setUserMessage("Salvo com sucesso.")
-      return
-    }
-
-    const notasTeoricaSalvaJS = JSON.parse(notasTeoricasSalvas)
-    const notasPraticaSalvaJS = JSON.parse(notasPraticasSalvas)
-
-    notasTeoricaSalvaJS.forEach((disciplina) => {
-      notasTeoricas.push(disciplina)
-    });
-
-    notasPraticaSalvaJS.forEach((disciplina) => {
-      notaPraticas.push(disciplina)
-    });
-    
-    localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
-    localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
-
-    setUserMessage("Salvo com sucesso.")
-  }
-
 
   return (
     <div className="divMedia">
