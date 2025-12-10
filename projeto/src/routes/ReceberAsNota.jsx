@@ -133,7 +133,7 @@ const ReceberAsNota = () => {
                 ))}
                 {userMessage && <p className="userMessage">{userMessage}</p>}
                 <div className="btn-salvar">
-                  <button onClick={salvarLocalStorage}>Salvar</button>
+                  <button onClick={() => salvarLocalStorage(true, false)}>Salvar</button>
                 </div>
             </div>
             {/* <div className="resumo-geral">

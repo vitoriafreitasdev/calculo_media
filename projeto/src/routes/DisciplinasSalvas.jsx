@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 
 import { useState } from "react"
 import "./DisciplinasSalvas.css"
@@ -20,7 +20,7 @@ const DisplinasSalvas = () => {
     // fazer o teste de salvarLocalStorage
   return (
     <div className='disciplinasSalvasDiv'>
-      {userMessage && <p>{userMessage}</p>}
+      
       <h2>Disciplinas salvas</h2>
       <h3>Teóricas</h3>
       <div className='discTeoricasSalvas'>
@@ -28,11 +28,11 @@ const DisplinasSalvas = () => {
             <div key={index} className='discTeorica'> 
                 <h3>{disciplina.disciplina}</h3>
                 <p><strong>Prova:</strong></p>
-                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.prova} onChange={(e) => teoricas(index, 'prova', e.target.value)}/>
+                <input type="number" min="0" max="10" step="0.1" value={disciplina.prova} onChange={(e) => teoricas(index, 'prova', e.target.value)}/>
                 <p><strong>Ava: </strong></p>
-                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.ava} onChange={(e) => teoricas(index, 'ava', e.target.value)}/>
+                <input type="number" min="0" max="10" step="0.1" value={disciplina.ava} onChange={(e) => teoricas(index, 'ava', e.target.value)}/>
                 <p><strong>Pim: </strong></p>
-                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.pim} onChange={(e) => teoricas(index, 'pim', e.target.value)}/>
+                <input type="number" min="0" max="10" step="0.1" value={disciplina.pim} onChange={(e) => teoricas(index, 'pim', e.target.value)}/>
                 <p><strong>Média: </strong>{disciplina.media}</p>
                 {disciplina.aprovado ? <p className="aprovado">Aprovado</p> : <p className="reprovado">Reprovado</p>}
             </div>
@@ -44,15 +44,16 @@ const DisplinasSalvas = () => {
             <div key={index} className='discPratica'> 
                 <h3>{disciplina.disciplina}</h3>
                 <p><strong>Prova: </strong></p>
-                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.prova} onChange={(e) => praticas(index, 'prova', e.target.value)}/>
+                <input type="number" min="0" max="10" step="0.1" value={disciplina.prova} onChange={(e) => praticas(index, 'prova', e.target.value)}/>
                 <p><strong>Relatório: </strong></p>
-                <input type="number" min="0" max="10" step="0.1" placeholder={disciplina.relatorio} onChange={(e) => praticas(index, 'relatorio', e.target.value)}/>
+                <input type="number" min="0" max="10" step="0.1" value={disciplina.relatorio} onChange={(e) => praticas(index, 'relatorio', e.target.value)}/>
                 <p><strong>Média: </strong>{disciplina.media}</p>
                 {disciplina.aprovado ? <p className="aprovado">Aprovado</p> : <p className="reprovado">Reprovado</p>}
             </div>
            ))}
       </div>
-      <button className="save-btn" onClick={salvarLocalStorage}>Salvar</button>
+      {userMessage && <p>{userMessage}</p>}
+      <button className="save-btn" onClick={() => salvarLocalStorage(false, true)}>Salvar</button>
     </div>
   )
 }

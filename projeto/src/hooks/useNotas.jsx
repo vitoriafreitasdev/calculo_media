@@ -29,8 +29,7 @@ export const useNotas = (notasTeoricas, setNotasTeoricas, notaPraticas, setNotaP
 
             })
 
-            
-
+        
         
     }
 
@@ -63,6 +62,8 @@ export const useNotas = (notasTeoricas, setNotasTeoricas, notaPraticas, setNotaP
 
             return novasNotas
         })
+     
+
 
     }
 
@@ -73,33 +74,45 @@ export const useNotas = (notasTeoricas, setNotasTeoricas, notaPraticas, setNotaP
 
     // salvar na local storage 
 
-    const salvarLocalStorage = () => {
+    const salvarLocalStorage = (novas, atualizacao) => {
 
-        const notasTeoricasSalvas = localStorage.getItem("notasTeoricas")
-        const notasPraticasSalvas = localStorage.getItem("notasPraticas")
+        if(novas){
+            const notasTeoricasSalvas = localStorage.getItem("notasTeoricas")
+            const notasPraticasSalvas = localStorage.getItem("notasPraticas")
 
-        if(!notasTeoricasSalvas && !notasPraticasSalvas){
+            if(!notasTeoricasSalvas && !notasPraticasSalvas){
+                localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
+                localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
+                setUserMessage("Salvo com sucesso.")
+                return
+            }
+
+            const notasTeoricaSalvaJS = JSON.parse(notasTeoricasSalvas)
+            const notasPraticaSalvaJS = JSON.parse(notasPraticasSalvas)
+
+        
+            notasTeoricaSalvaJS.forEach((disciplina) => {
+                notasTeoricas.push(disciplina)
+            });
+
+            notasPraticaSalvaJS.forEach((disciplina) => {
+                notaPraticas.push(disciplina)
+            });
+
+
+            localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
+            localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
+
+            setUserMessage("Salvo com sucesso.")
+        }
+
+        if(atualizacao){
+            localStorage.removeItem("notasTeoricas")
+            localStorage.removeItem("notasPraticas")
             localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
             localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
             setUserMessage("Salvo com sucesso.")
-            return
         }
-
-        const notasTeoricaSalvaJS = JSON.parse(notasTeoricasSalvas)
-        const notasPraticaSalvaJS = JSON.parse(notasPraticasSalvas)
-
-        notasTeoricaSalvaJS.forEach((disciplina) => {
-            notasTeoricas.push(disciplina)
-        });
-
-        notasPraticaSalvaJS.forEach((disciplina) => {
-            notaPraticas.push(disciplina)
-        });
-        
-        localStorage.setItem("notasTeoricas", JSON.stringify(notasTeoricas))
-        localStorage.setItem("notasPraticas", JSON.stringify(notaPraticas))
-
-        setUserMessage("Salvo com sucesso.")
   }
 
     return {teoricas, praticas, salvarLocalStorage, userMessage}

@@ -19,6 +19,7 @@ const NomeDasDisciplina = () => {
         teorica[index] = value
         setNomeDasDisciTeorica(teorica)
 
+        
     }
 
     const praticas = (index, value) => {
@@ -30,6 +31,28 @@ const NomeDasDisciplina = () => {
 
     const handleSubmit = (e) => {
        e.preventDefault()
+       const teoricas_ordenadas = nomeDasDisciTeorica.sort((a, b) => {
+            if (a < b) {
+                return -1;
+            }
+            if (a > b) {
+                return 1;
+            }
+            return 0;
+        });
+
+        const praticas_ordenadas = nomeDasDisciPratica.sort((a, b) => {
+            if (a < b) {
+                return -1;
+            }
+            if (a > b) {
+                return 1;
+            }
+            return 0;
+        });
+
+        setNomeDasDisciTeorica(teoricas_ordenadas)
+        setNomeDasDisciPratica(praticas_ordenadas)
         navigate('/receberAsNotas', {state: { nomeDasDisciTeorica, nomeDasDisciPratica }})
     }
   return (
