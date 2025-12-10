@@ -1,7 +1,7 @@
 .disciplinasSalvasDiv{
-    margin: 2rem;
-    background-color: rgba(16, 133, 187, 0.445);
+    background-color: #f8f8f8c5;
     padding: 2rem;
+    height: 100vh;
 }
 .disciplinasSalvasDiv h2, h3, h4{
     margin: 0.5rem;
@@ -10,6 +10,10 @@
 .discTeoricasSalvas, .discPraticasSalvas{
     margin: 1rem;
     padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(74, 118, 168);
+    border-radius: 10px;
 }
 
 .discTeoricasSalvas div, .discPraticasSalvas div {
@@ -25,11 +29,16 @@
     text-decoration: underline;
 }
 
-.discTeoricasSalvas{
-    background-color: #ececec;
+.discTeorica, .discPratica{
+    background-color: #ffffffbb;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.discPraticasSalvas{
-    background-color: rgb(206, 206, 206);
+
+.discTeorica input, .discPratica input{
+    padding: 0.3rem;
 }
 
 .aprovado{

@@ -65,7 +65,7 @@ const NomeDasDisciplina = () => {
                     <h2>Teóricas</h2>
                 </div>
                 {Array.from({length: numDeTeorica}).map((_, index) =>(
-                    <div key={index}>
+                    <div key={index} className="div-nomes-disc">
                         <p className="p-name">Nome da disciplina: </p>
                         <input type="text" onChange={(e) => teoricas(index, e.target.value)} value={nomeDasDisciTeorica[index] || ''}/>
                     </div>
@@ -75,7 +75,7 @@ const NomeDasDisciplina = () => {
                     <h2>Práticas</h2>
                 </div>
                 {Array.from({length: numDePratica}).map((_, index) =>(
-                    <div key={index}>
+                    <div key={index} className="div-nomes-disc">
                         <p className="p-name">Nome da disciplina: </p>
                         <input type="text" onChange={(e) => praticas(index, e.target.value)} value={nomeDasDisciPratica[index] || ''}/>
                     </div>

@@ -1,3 +1,4 @@
+
 .formNomes{
     margin: 2rem;
     padding: 0.5rem;
@@ -23,7 +24,7 @@
     border-radius: 0.5rem;
 }
 .formNomes input[type="text"] {
-    margin: 2px;
+    margin: 3.5px;
     width: 60%;
     height: 1.2rem;
     text-align: center;
@@ -61,3 +62,4 @@
     height: 50px;
     margin: 0.5rem;
 }
+
