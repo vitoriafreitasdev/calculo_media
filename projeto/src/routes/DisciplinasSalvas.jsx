@@ -15,7 +15,7 @@ const DisplinasSalvas = () => {
 
     const {teoricas, praticas, salvarLocalStorage, userMessage} = useNotas(notasTeoricas, setNotasTeoricas, notaPraticas, setNotaPraticas)
 
-    if(!teoricasSalvas && !praticasSalvas) return <div><p>Não tem disciplinas salvas</p></div>
+    if(!teoricasSalvas && !praticasSalvas) return <div className='disciplinasSalvasDiv'><p>Não tem disciplinas salvas</p></div>
     
     // fazer o teste de salvarLocalStorage
   return (
